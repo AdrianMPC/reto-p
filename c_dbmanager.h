@@ -18,7 +18,8 @@ class DBManager {
     public:
         DBManager(const std::string& archivoCSV, char delimitador = ';', size_t hashSize = 2500);
         bool loadData();
-        s_interbank_data* searchID(unsigned long id);
+        void genReporte();
+        void searchID(unsigned long id);
 };
 
 #endif //C_DBMANAGER_H

@@ -1,6 +1,7 @@
 #include "./c_csvreader.h"
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 CSVreader::CSVreader(const std::string& p_narchivo, char p_delimitador)
 {
@@ -41,4 +42,9 @@ std::vector<std::string> CSVreader::m_split(const std::string& line, char delimi
     }
 
     return tokens;
+}
+
+void CSVreader::clearData(){
+    m_data.clear();                 
+    m_data.shrink_to_fit();        
 }

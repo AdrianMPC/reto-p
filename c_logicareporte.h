@@ -1,3 +1,6 @@
+#ifndef C_LOGICAREPORTE_H
+#define C_LOGICAREPORTE_H
+
 #include "./s_data.h"
 
 class LogicaNegocio{
@@ -10,5 +13,8 @@ class LogicaNegocio{
     public:
         LogicaNegocio();
         void evaluar_data(s_interbank_data*);
+        void imprimir_registro(s_interbank_data*);
         void generar_reporte();
 };
+
+#endif // C_LOGICAREPORTE_H

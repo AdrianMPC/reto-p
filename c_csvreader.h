@@ -13,6 +13,7 @@ class CSVreader {
     public:
         CSVreader(const std::string& p_narchivo, char p_delimitador = ';');
         bool read();
+        void clearData();        
         std::vector<std::vector<std::string>> getData() const;
 };
 #endif // C_CSVREADER_H

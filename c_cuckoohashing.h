@@ -31,6 +31,7 @@ class CuckooHashing {
 
     public:
         CuckooHashing(size_t sizeTabla);
+        ~CuckooHashing();
         bool insertDataChunk(s_interbank_data* data);
         s_interbank_data* searchData(unsigned long id);
         bool deleteDataChunk(unsigned long id);

@@ -9,6 +9,16 @@ CuckooHashing::CuckooHashing(size_t sizeTabla) : m_sizeTabla(sizeTabla)
     m_tabla.resize(sizeTabla, nullptr);
 }
 
+CuckooHashing::~CuckooHashing(){
+    for (auto& ptr : m_tabla) {
+        if (ptr != nullptr) {
+            delete ptr;
+            ptr = nullptr;
+        }
+    }
+    m_tabla.clear();
+}
+
 unsigned long CuckooHashing::m_firstHash(unsigned long id)
 {
     return hashFunction(id, m_sizeTabla);
