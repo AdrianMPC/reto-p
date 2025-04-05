@@ -7,13 +7,13 @@ void mostrarMenu() {
     std::cout << "\n----- MENU -----\n";
     std::cout << "1. Buscar por ID\n";
     std::cout << "0. Salir\n";
-    std::cout << "Seleccione una opción: ";
+    std::cout << "Seleccione una opcion: ";
 }
 
 
 int main(){
     std::string input;
-    std::cout << "Ingrese la dirección donde se encuentra el CSV: ";
+    std::cout << "Ingrese la direccion donde se encuentra el CSV: ";
     std::getline(std::cin, input);
 
     DBManager o_dbmanager(input,',');
