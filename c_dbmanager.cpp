@@ -1,10 +1,11 @@
 #include "./c_dbmanager.h"
 
+
 #include <iostream>
 #include <cstring>
 
 DBManager::DBManager(const std::string& p_archivoCSV, char p_delimitador, size_t p_hashSize)
-: m_csvReader(p_archivoCSV, p_delimitador), m_hashTable(p_hashSize) {}
+: m_csvReader(p_archivoCSV, p_delimitador), m_hashTable(p_hashSize), m_genReporte() {}
   
 s_interbank_data* DBManager::m_parseRow(const std::vector<std::string>& fila) {
     if (fila.size() < 3) return nullptr;
@@ -27,10 +28,10 @@ bool DBManager::loadData() {
     for (const auto& fila : m_csvReader.getData()) {
         s_interbank_data* dato = m_parseRow(fila);
         if (dato) {
+            m_genReporte.evaluar_data(dato);
             m_hashTable.insertDataChunk(dato);
         }
     }
-
     return true;
 }
 

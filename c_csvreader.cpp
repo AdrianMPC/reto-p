@@ -19,8 +19,12 @@ bool CSVreader::read()
     if (!file.is_open()) return false;
 
     std::string line;
+    std::getline(file, line); // ignora la primer linea
+
     while (std::getline(file, line)) {
-        m_data.push_back(m_split(line, m_delimitador));
+        if (!line.empty()){
+            m_data.push_back(m_split(line, m_delimitador));
+        }  
     }
 
     file.close();
